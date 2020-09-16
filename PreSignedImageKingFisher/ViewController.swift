@@ -15,7 +15,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        imageView.kf.setImage(with: PresignedImageURL(string: "https://s3.amazonaws.com/mybucket/myimage.png?AWSAccessKeyId=AKISKSD87A3C4&Expires=109838429&Signature=s98df7s8df12f2jo4lfjfs9d0fu0sd9f"))
+        let preSignedURL = "https://s3.amazonaws.com/mybucket/myimage.png?AWSAccessKeyId=AKISKSD87A3C4&Expires=109838429&Signature=s98df7s8df12f2jo4lfjfs9d0fu0sd9f"
+        preSignedURL.isPresigned = true
+        imageView.kf.setImage(with: PresignedImageURL(string: preSignedURL))
     }
 
 
